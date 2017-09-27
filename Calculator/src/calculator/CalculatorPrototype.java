@@ -42,14 +42,17 @@ public class CalculatorPrototype implements CalculatorIF {
     @Override
     public int multiply(int m, int n) {
         int result=0;
+        int mSign = m<0 ? -1 : 1;
+        int nSign = n<0 ? -1 : 1;
+
         int s= (n >= 0 ? 1 : -1);
 
         while (n!=0) {
-            result += abs(m);
+            result += abs(m); //result is always positive (fixed)
             n -= s;
         }
 
-        return result;
+        return mSign * nSign * result;
     }
 
 
